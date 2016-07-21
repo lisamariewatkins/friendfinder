@@ -3,13 +3,18 @@ friends = [
 	{scores: [3,3,3,3,3,3,3]}
 ]
 
-userData = [4,4,4,4,4,4,4]
+userData = {scores: [4,4,4,4,4,4,4]}
+
 
 
 for (var i = 0; i < friends.length; i++){
-		for (var j = 0; j < friends[i].scores.length;j++){
-			var differences = [];
+		var differences = [];
+		for (var j = 0; j < friends[i].scores.length;j++){	
 			differences.push(Math.abs(userData.scores[j] - friends[i].scores[j]));
-			console.log(differences);
 		}
+		totalDifference = differences.reduce(add, 0);
+		function add(a,b){
+			return a + b;
+		}
+	console.log(totalDifference);
 	};
