@@ -4,6 +4,12 @@ var path = require('path');
 var app = express();
 var PORT = 3000;
 
+var api = require('routing/api-routes.js');
+var html = require('routing/html-routes.js');
+
+api(app);
+html(app);
+
 //SETS UP DATA PARSING
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
