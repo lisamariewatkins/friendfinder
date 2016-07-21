@@ -7,6 +7,7 @@ var PORT = 3000;
 var api = require('routing/api-routes.js');
 var html = require('routing/html-routes.js');
 
+//call route functions
 api(app);
 html(app);
 
