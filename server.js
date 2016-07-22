@@ -1,11 +1,11 @@
 var express = require('express');
-var bodyParse = require('body-parser');
+var bodyParser = require('body-parser');
 var path = require('path');
 var app = express();
 var PORT = 3000;
 
-var api = require('routing/api-routes.js');
-var html = require('routing/html-routes.js');
+var api = require('./app/routing/api-routes.js');
+var html = require('./app/routing/html-routes.js');
 
 //call route functions
 api(app);

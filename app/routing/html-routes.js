@@ -1,4 +1,6 @@
 //Routes
+var path = require('path');
+
 module.exports = function(app){
 
 	app.get("/", function(err,res){
