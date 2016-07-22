@@ -1,39 +1,32 @@
-var array = require('./../data/friends.js');
+var array = require('../data/friends.js');
+var bodyParser = require('body-parser');
+var path = require('path');
 
 //Routes
 module.exports = function(app){
 
-	function add(a,b){
-		return a + b;
-	}
-
-	var bestMatch;
-
 	app.get('/api/friends', function(req,res){
-		res.json();
-	})
+		res.json(array);
+	});
 
 	app.post('/api/friends', function(req,res){
-		var newFriend = req.body;
-		newFriend.friendID = newFriend.friendName.replace(/\s+/g, '').toLowerCase();
-		array.push(newFriend);
+		
 		//write function to show best results
-		for (var i = 0; i < friends.length; i++){
-			var differences = [];
-			var totalDifference;
-			var lastDif = 50;
-
-			for (var j = 0; j < friends[i].scores.length;j++){	
-				differences.push(Math.abs(userData.scores[j] - friends[i].scores[j]));
-				
-				totalDifference = differences.reduce(add, 0);
-				
-				if (totalDifference < lastDif){
-					lastDif = totalDifference;
-					bestMatch = friends[i];
-				}
-			}	
-		};
+		var lastDiff = 50;
+		var bestMatch;
+		array.forEach(function(item){
+			console.log(item);
+			var diff = 0;
+			for(i=0;i<item.scores.length;i++){
+				diff += Math.abs(item.scores[i] - req.body.scores[i])
+			}
+			if(diff <=lastDiff){
+				lastDiff = diff;
+				bestMatch = item;
+			}
+		});
+		res.json(bestMatch);
+		array.push(req.body);
 	});
 
 };
