@@ -16,13 +16,12 @@
     "type": "git",
     "url": "git+https://github.com/lisamariewatkins/nodeExpressFriendFinder.git"
   },
-  "engines":{
-    "node":"4.1.1"
-  },
-  "author": "",
+  "author": "lisa-watkins",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/lisamariewatkins/nodeExpressFriendFinder/issues"
   },
-  "homepage": "https://github.com/lisamariewatkins/nodeExpressFriendFinder#readme"
+  "engines":{
+    "node": "6.2.2"
+  }
 }
