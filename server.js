@@ -13,6 +13,9 @@ app.use(bodyParser.json({type:'application/vnd.api+json'}));
 var api = require('./app/routing/api-routes.js');
 var html = require('./app/routing/html-routes.js');
 
+//middleware
+app.use('/app', express.static(__dirname + '/public'));
+
 //call route functions
 api(app);
 html(app);
